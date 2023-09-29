@@ -1,15 +1,32 @@
-const MsContainer = document.querySelector('#ms-container');
+import msData from './data/data.json' assert { type: "json" };
 
-const listMs = MsContainer.querySelectorAll('li[data-ms]')
+// get dom element
+const rootApp = document.querySelector('#root');
+const msContainer = rootApp.querySelector('#ms-container')
 
+const { list } = msData;
+
+const msContainerData = list.map((item)=> {
+     return `<li data-ms-id=${item.id}>${item.msName}</li>`;
+}).join('')
+
+msContainer.innerHTML = msContainerData;
+
+// get ms properties element
+const listMs = msContainer.querySelectorAll('li[data-ms-id]');
+
+
+const currentAudio = new Audio();
+const msRootPath = 'data/storage/';
 listMs.forEach((ms)=> {
      ms.addEventListener('click', (item) => {
-          const audioPath = item.target.dataset.ms;
-          console.log(audioPath);
-          currentAudio.src=audioPath;
+          const msId = item.target.dataset.msId;
+          const [audioProperty] = list.filter((item => item.id == msId));
+          
+          const msSrc = `${msRootPath}${audioProperty.msName}.${audioProperty.msExt}`;
+          currentAudio.src = msSrc;
           currentAudio.play();
      })
 })
 
-const currentAudio = new Audio();
 

@@ -4,13 +4,21 @@
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>Document</title>
+     <style>
+          li{
+               cursor: pointer;
+          }
+     </style>
 </head>
 <body>
-     <ul id="ms-container">
-          <li data-ms="data/bg1.mp3">MS-1</li>
-          <li data-ms="source">MS-2</li>
-          <li data-ms="source">MS-3</li>
-     </ul>
-     <script src="app.js"></script>
+     <div id="root">
+          <ul id="ms-container"></ul>
+          
+          <ul id="state">
+               <li id="state-icon"></li>
+          </ul>
+     </div>
+
+     <script type="module" src="app.js"></script>
 </body>
 </html>
