@@ -3,7 +3,14 @@
         {
             "id": 1,
             "msName": "rl1",
-            "msExt": "mp3"
+            "msExt": "mp3",
+            "src": "rl1"
+        },
+        {
+            "id":2,
+            "msName": "rl2",
+            "msExt":"mp3",
+            "src":"LegendOfTheWind"
         }
     ]
 }
